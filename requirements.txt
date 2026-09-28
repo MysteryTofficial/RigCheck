@@ -1,0 +1,25 @@
+# RigCheck v1.0.0 - required dependencies
+# RigCheck is built with standard Python libraries (tkinter, threading,
+# multiprocessing, subprocess, etc.) plus one free / open-source module for
+# system metrics.
+psutil>=5.9.0
+
+# Optional extras for the "Service Tag + QR Code" generator:
+#  * qrcode   - BSD-3-Clause (QR code rendering)
+#  * pillow   - HPND / permissive (image drawing for the printable sticker)
+# Both are optional: RigCheck falls back gracefully if they are not installed.
+qrcode>=7.4
+pillow>=9.0
+
+# No extra dependency is needed for the CPU stress test: it uses one
+# multiprocessing process per logical core (stdlib only). The technique is
+# adapted from open-source projects - see THIRD_PARTY_NOTICES.txt for the
+# required license texts (stress-injector, MIT; pystress, BSD-2-Clause).
+# qrcode and Pillow licenses are also reproduced there.
+
+# Note for Linux users: the Tk interface ships with Python on most systems,
+# but on some distributions it is a separate package. If 'import tkinter'
+# fails, install it with your package manager, e.g.:
+#   Fedora:         sudo dnf install python3-tkinter
+#   openSUSE:       sudo zypper install python3-tk
+#   Arch:           sudo pacman -S tk
